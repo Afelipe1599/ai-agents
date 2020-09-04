@@ -12,7 +12,7 @@ class CleanerAgent extends Agent {
             "0,0,0,0,0": "UP",
             "0,0,0,1,0": "UP",
             "0,0,1,0,0": "UP",
-            "0,0,1,1,0": "LEFT",
+            "0,0,1,1,0": "UP",
             "0,1,0,0,0": "LEFT",
             "0,1,0,1,0": "RIGHT",
             "0,1,1,0,0": "LEFT",
@@ -33,9 +33,26 @@ class CleanerAgent extends Agent {
      * In this case, the state is just obtained as the join of the perceptions
      */
     send() {
-        let viewKey = this.perception.join();
-        if (this.table[viewKey]) {
-            return this.table[viewKey];
+        let tablaDecisiones = {
+            "RIGHT": "LEFT",
+            "LEFT": "RIGHT",
+            "UP": "DOWN",
+            "DOWN": "UP",
+        }
+        let viewKey = this.perception.join(); //"0,1,0,0,0"
+        let estadoAnterior;
+        //console.log(this.state);
+        //console.log(this.perception);
+        var action = this.table[viewKey];//RIGHT,UP,DOWN,LEFT
+        if (action) {
+            estadoAnterior = tablaDecisiones[action];//guarda el estado anterior del agente
+            //console.log("estado anterior = " + estadoAnterior); 
+            if(action != estadoAnterior){
+                return action;
+                
+            }else{
+
+            }    
         } else {
             return this.table["default"];
         }

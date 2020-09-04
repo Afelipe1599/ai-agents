@@ -39,15 +39,19 @@ class CleanerProblem extends Problem {
         let agentState = data.states[agentID];
         if (action == "UP") {
             agentState.y -= 1;
+            map[agentState.y][agentState.x]=1;
         }
         if (action == "DOWN") {
             agentState.y += 1;
+            map[agentState.y][agentState.x]= 1;
         }
         if (action == "LEFT") {
             agentState.x -= 1;
+            map[agentState.y][agentState.x]= 1;
         }
         if (action == "RIGHT") {
             agentState.x += 1;
+            map[agentState.y][agentState.x]= 1;
         }
         if (action == "TAKE") {
             map[agentState.y][agentState.x] = 0;
