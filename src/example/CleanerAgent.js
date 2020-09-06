@@ -50,9 +50,7 @@ class CleanerAgent extends Agent {
             if(action != estadoAnterior){
                 return action;
                 
-            }else{
-
-            }    
+            }   
         } else {
             return this.table["default"];
         }
