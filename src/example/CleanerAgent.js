@@ -46,7 +46,7 @@ class CleanerAgent extends Agent {
         var action = this.table[viewKey];//RIGHT,UP,DOWN,LEFT
         if (action) {
             estadoAnterior = tablaDecisiones[action];//guarda el estado anterior del agente
-            //console.log("estado anterior = " + estadoAnterior); 
+            console.log("estado anterior = " + estadoAnterior); 
             if(action != estadoAnterior){
                 return action;
                 
